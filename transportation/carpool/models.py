@@ -56,8 +56,7 @@ class Topics(models.Model):
     
     
     
-    
-    class Comments(models.Model):
+class Comments(models.Model):
     comment = models.CharField(max_length=1000)
     user = models.ForeignKey(Person , on_delete=models.CASCADE)
     topic = models.ForeignKey(Topics , on_delete=models.CASCADE)
