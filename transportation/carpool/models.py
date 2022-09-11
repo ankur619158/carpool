@@ -53,3 +53,24 @@ class Topics(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    
+    
+    
+    
+    class Comments(models.Model):
+    comment = models.CharField(max_length=1000)
+    user = models.ForeignKey(Person , on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topics , on_delete=models.CASCADE)
+    ratings = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+
+class Location(models.Model):
+    lat = models.IntegerField()
+    lon = models.IntegerField()
+    user = models.ForeignKey(Person , on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topics , on_delete=models.CASCADE , null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
